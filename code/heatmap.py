@@ -9,8 +9,8 @@ from scipy.ndimage import gaussian_filter
 import rasterio as rio
 
 
-image_org = "Images/farm_weedmap_img.jpg"
-image_mask = "images/out.png"
+image_org ="/home/shashankdhavala/Desktop/Weed Mapping/Images/farm_weedmap_img.jpg"# "Images/farm_weedmap_img.jpg"
+image_mask = "/home/shashankdhavala/Desktop/Weed Mapping/Images/out.png"#"images/out.png"
 
 def get_CIVE_band(img):
     img = cv.GaussianBlur(img,(35,35),0)
@@ -76,7 +76,7 @@ org, masked = generate_heatmap(image_org, image_mask)
 ax = plt.subplot(1, 1, 1)
 ax.set_title("original")
 plt.imshow(masked)
-plt.savefig('output/final.png')#'output/final.png')
+plt.savefig('/home/shashankdhavala/Desktop/Weed Mapping/output/final.png')#'output/final.png')
 
-plt.savefig('output/final')#'output/fina')
+plt.savefig('/home/shashankdhavala/Desktop/Weed Mapping/output/final')#'output/fina')
 plt.show()

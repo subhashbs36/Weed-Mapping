@@ -5,15 +5,9 @@ from PIL import Image
 import numpy as np
 import rasterio as rio
 
-image_file1 = "images/image1.jpg"
-image_file2 = "images/image2.jpg"
-image_file3 = "images/image3.jpg"
-image_file4 = "images/image4.jpg"
-image_file5 = "images/image5.jpg"
-image_org = "images/sliced.jpg"
+image_org = "images/test2.jpg"
 image_mask = "images/out.png"
-tiff_image = "Images/sliced.tif"
-ground_truth = "images/GT.jpg"
+tiff_image = "Images/test2.tif"
 
 def geoCordinates(img_path, x, y):
     # Open the TIFF file
@@ -50,8 +44,9 @@ def draw_countors(img):
             cent_y=(y1+y2+y3)/3
             mid_points.append([cent_x,cent_y])
             #print([cent_x,cent_y])
+            print("Processing Geocordinates...")
             lat_coord,lon_coord=geoCordinates(tiff_image,cent_x,cent_y)
-            print([cent_x,cent_y],[lat_coord,lon_coord])
+            print(f"xy-{[cent_x,cent_y]}, LatLong-{[lat_coord,lon_coord]}")
 
 
     cv.drawContours(img,filtered_contours, -1, (0,255,0), 3)
